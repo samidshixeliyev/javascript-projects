@@ -1,0 +1,104 @@
+/* Bütün elementlərin default margin və padding dəyərlərini sıfırlayır */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Bütün səhifənin minimum hündürlüyünü ekranın (viewport) tam hündürlüyünə bərabər edir */
+body {
+    min-height: 100vh;
+    background-image: url(img/1111.jpg); /* Arxa fonda şəkil əlavə edir */
+    background-size: cover; /* Şəkilin tam ekrana uyğun ölçüdə olmasını təmin edir */
+    background-repeat: no-repeat; /* Şəkilin təkrarlanmasının qarşısını alır */
+    background-position: center; /* Şəkili ekranın mərkəzinə yerləşdirir */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Saytın əsas şrift ailəsini təyin edir */
+}
+
+/* Naviqasiya menyosu üçün stil */
+nav {
+    background-color: white; /* Arxa fon rəngi ağ olur */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); /* Aşağı sağa doğru kiçik bir kölgə effekti əlavə edir */
+}
+
+/* Naviqasiya menyusundakı siyahını (ul) düzülüş olaraq yatay edir */
+nav ul {
+    width: 100%; /* Siyahının tam ekran enində olmasını təmin edir */
+    list-style: none; /* Siyahı nişanlarını (bullet points) silir */
+    display: flex; /* Siyahını flexbox strukturu ilə düzür */
+    justify-content: flex-end; /* Elementləri sağ tərəfə sıxlaşdırır */
+    align-items: center; /* Elementləri ortalayır (vertikal olaraq) */
+}
+
+/* Naviqasiya menyusundakı siyahı elementləri (li) */
+nav li {
+    height: 50px; /* Hündürlüyü 50 piksel edir */
+}
+
+/* Naviqasiya menyusundakı linklərin dizaynı */
+nav a {
+    height: 100%; /* Linklərin tam elementin hündürlüyünə uyğun olmasını təmin edir */
+    padding: 0 30px; /* Linklərə sağ və sol tərəfdən 30px boşluq əlavə edir */
+    text-decoration: none; /* Altından xəttin görünməsinin qarşısını alır */
+    display: flex; /* Linkləri flexbox kimi göstərir */
+    align-items: center; /* Linklərdəki mətnləri dikey olaraq ortalayır */
+    color: black; /* Mətn rəngini qara edir */
+}
+
+/* Hover zamanı linklərə arxa fon rəngi əlavə edir */
+nav a:hover {
+    background-color: #f0f0f0; /* Linkin üstünə gələndə açıq boz rəngə çevrilir */
+}
+
+/* İlk li elementini (adətən logo və ya əsas başlıq olur) sağ tərəfə itələyir */
+nav li:first-child {
+    margin-right: auto; /* İlk element avtomatik olaraq sol tərəfə çəkilir */
+}
+
+/* Mobil üçün açılan menyu (Sidebar) */
+.sidebar {
+    position: fixed; /* Sabit mövqedə qalır */
+    top: 0; /* Yuxarıdan sıfır boşluq */
+    right: 0; /* Sağ tərəfdə yerləşir */
+    height: 100vh; /* Tam ekran hündürlüyündə olur */
+    width: 250px; /* 250 piksel enində olur */
+    background-color: rgba(255, 255, 255, 0.15); /* Ağ rəngin 15% şəffaf versiyası */
+    backdrop-filter: blur(12px); /* Arxa fonun bulanıq (blur) effektini verir */
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1); /* Sol tərəfə doğru kölgə effekti */
+    list-style: none; /* Siyahı nişanlarını silir */
+    display: none; /* Başlanğıcda menyunu gizlədir */
+    flex-direction: column; /* Elementləri dikey sütun kimi düzür */
+    align-items: flex-start; /* Elementləri sola düzür */
+    justify-content: flex-start; /* Yuxarıdan başlayır */
+}
+
+/* Sidebar içindəki hər bir siyahı elementi (li) tam genişlikdə olur */
+.sidebar li {
+    width: 100%;
+}
+
+/* Sidebar içindəki linklər tam genişlikdə olur */
+.sidebar a {
+    width: 100%;
+}
+
+/* Mobil menyu açma düyməsi (hamburger button) */
+.menu-button {
+    display: none; /* Desktopda gizlənir */
+}
+
+/* **Ekran 800px və daha kiçik olduqda tətbiq olunan dəyişikliklər (mobil uyğunlaşma)** */
+@media (max-width: 800px) {
+    .hideOnMobile {
+        display: none; /* Mobil cihazlarda bu element gizlənir */
+    }
+    .menu-button {
+        display: block; /* Mobil cihazlarda menyu düyməsi göstərilir */
+    }
+}
+
+/* **Ekran 400px və daha kiçik olduqda (daha kiçik mobil cihazlar üçün)** */
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%; /* Sidebar tam ekran genişliyində olur */
+    }
+}
